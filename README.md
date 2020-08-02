@@ -31,7 +31,7 @@
 2. 终端输入 `mkdir -p ~/Library/PlayOnMac/wine/darwin-amd64/5.0.1`（最后的版本号和你下的一致），`tar -zxvf PlayOnLinux-wine-5.0.1-upstream-darwin-amd64.tar.gz路径 -C ~/Library/PlayOnMac/wine/darwin-amd64/5.0.1`
 3. 下载 5.0.1 对应的 mono，https://dl.winehq.org/wine/wine-mono/4.9.4/wine-mono-4.9.4.msi
 4. 下载 5.0.1 对应的 gecko，https://dl.winehq.org/wine/wine-gecko/2.47.1/wine-gecko-2.47.1-x86_64.msi ，https://dl.winehq.org/wine/wine-gecko/2.47.1/wine-gecko-2.47.1-x86.msi
-5. 终端输入 `mkdir -p ~/.cache/wine`，使用 Finder 的 前往 菜单->前往文件夹，输入 *~/.cache/wine*，将前两步下载的 3 个文件拷贝进来
+5. 终端输入 `mkdir -p ~/.cache/wine`，使用 Finder 的 前往 菜单->前往文件夹，输入 *~/.cache/wine*，将前两步下载的 3 个文件拖动进来
 6. 进入程序，主界面点击 **配置**，左下角 **新建**，一定要选择 *64 bit windows installation*，下一步选择 *5.0.1*（如果这里是空的，说明步骤12出问题了），输入虚拟盘名称 *EVE*，等待完成
 7. 配置界面左边点击刚刚新建的 *EVE*，选择标签 **安装内容**，找到 *Microsoft Core Fonts*，点击 **安装**，这里下载很慢要等很久，耐心点（不做这步无法显示对话框内容、输入文字）
     ![PlayOnMac](https://github.com/kkHAIKE/EVEcnOnMac/raw/master/PlayOnMac.png)
@@ -49,4 +49,4 @@
 ## 原因
 https://www.winehq.org/pipermail/wine-devel/2019-May/146014.html
 
-总的来说就是 gcc 使用了 windows 在 64bit 下的 TEB 偏移，导致 wine 无法还原这个偏移，并且 EVEGuardx64 静态链接了 msvcrt 导致使用了 TEB，所以补丁跳过了所有的 TEB 使用（在 wine 下这几处获取也用不到）
+总的来说就是 gcc 使用了 windows 在 64bit 下的 TEB 偏移，导致 wine 无法还原这个偏移（32bit 是正常的），并且 EVEGuardx64 静态链接了 msvcrt 从而使用了 TEB，所以补丁跳过了所有的 TEB 使用（在 wine 下这几处获取也用不到）
