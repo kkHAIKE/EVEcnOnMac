@@ -44,4 +44,9 @@
 ![错误详情](https://github.com/kkHAIKE/EVEcnOnMac/raw/master/错误详情.png)
 
 ## 补丁
-待续
+先退出登录器，下载 repo 中的 evepatch.py，执行 `python evepatch.py EVEdir`（确保登录器不在运行），即可正常登录游戏
+
+## 原因
+https://www.winehq.org/pipermail/wine-devel/2019-May/146014.html
+
+总的来说就是 gcc 使用了 windows 在 64bit 下的 TEB 偏移，导致 wine 无法还原这个偏移，并且 EVEGuardx64 静态链接了 msvcrt 导致使用了 TEB，所以补丁跳过了所有的 TEB 使用（在 wine 下这几处获取也用不到）
