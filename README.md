@@ -9,7 +9,7 @@
 ## 准备
 1. EVE 在 win 下已经装好的游戏目录
 2. wine 容器
-    1. CrossOver 容器（收费），上手简单（建议）
+    1. CrossOver 容器（收费），上手简单（建议），（看起来支持catalina，[参考](https://www.crossoverchina.com/news/19-fb.html)）
     2. PlayOnMac 容器（免费），考验操作
 
 ## CrossOver 容器
